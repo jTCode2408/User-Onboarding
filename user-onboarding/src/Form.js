@@ -81,8 +81,31 @@ return (
                     </p>
         )}
 
-</label>
-    {/*pass form field*/}
+
+
+</label>  {/*pass form field*/}
+<label>
+    Role:
+    </label>
+<Field 
+as ="select"
+className = "dropdown"
+name = "role"
+type = "dropdownlist"
+placeholder = "role" >
+
+
+<option value = "choose a role">Choose a Role</option>
+<option value = "Back-end-dev">Back End Dev</option>
+<option value = "Front-end-dev">Front End Dev</option>
+<option value = "UX-dev">UX Dev</option>
+<option value = "Mobile-dev">Mobile Dev</option>
+
+
+</Field>
+   {/*STRETCH dropdown role form field*/}
+
+  
 
 <label className = "checkbox">
     Terms Of Sevice
@@ -103,7 +126,7 @@ checked = {values.terms}
  {/*checkbox(TOS) form field*/}
 
 <button type ="sbumit">
-    Log In!
+    Sign Up!
 </button>
       {/*submit button form field*/}
 
@@ -115,13 +138,16 @@ checked = {values.terms}
            <li> Name: {user.name}</li>
            <li> Email: {user.email}</li>
            <li> Password: {user.password}</li>
-        <li>Terms: {user.terms}</li>
+           <li>Role: {user.role} </li>
+        <li>Terms: {String(user.terms)}</li>
+
         </ul>
         );
     })} 
     </div>
 );
 };
+//map for user data to display on screen after entered.
 
 const UserFormikForm = withFormik ({
     mapPropsToValues(props){
@@ -129,14 +155,16 @@ const UserFormikForm = withFormik ({
             name: props.name || "",
             email: props.email || "",
             password: props.password || "",
+            role: props.role || "",
             terms: props.terms || false
         };
         }, //pass props to new users?
 
 validationSchema: Yup.object().shape({
 name :Yup.string().required("name required!"),
-email: Yup.string().required("emailed required!"),
-password:Yup.string().required("password required!")
+email: Yup.string().required("email required!"),
+password:Yup.string().required("password required!"),
+role: Yup.string().required("role required!")
 }),
     
 //validation for inputs
