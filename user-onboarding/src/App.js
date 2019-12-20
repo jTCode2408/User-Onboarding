@@ -8,8 +8,9 @@ function App() {
       
       <h1>
         User Onboarding
+        </h1>
         <UserFormikForm/>
-      </h1>
+      
     </div>
   );
 }

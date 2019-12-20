@@ -40,6 +40,14 @@ return (
         placeholder = "name"
         />
 
+        {touched.name && errors.name && (
+            <p className = "errors">
+                    {errors.name}
+                    </p>
+        )}
+
+        {/*add errors touch/error*/}
+
     </label> 
     {/*name form field*/}
 
@@ -50,6 +58,13 @@ return (
     name = "email"
     placeholder = "email"
     />
+
+{touched.email && errors.email && (
+           <p>
+            {errors.email}
+                    </p>
+        )}
+
     </label>  {/*email form field*/}
 
     <label>
@@ -59,6 +74,12 @@ return (
     name = "password"
     placeholder = "password"
     />
+
+{touched.password && errors.password && (
+            <p className = "errors">
+                    {errors.password}
+                    </p>
+        )}
 
 </label>
     {/*pass form field*/}
@@ -70,6 +91,12 @@ type = "checkbox"
 name = "terms"
 checked = {values.terms}
 />
+
+{touched.terms && errors.terms && (
+            <p className = "errors">
+                    {errors.terms}
+                    </p>
+        )}
 
 </label>
 
