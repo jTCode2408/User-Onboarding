@@ -8,9 +8,9 @@ const FormikForm = ({
 values, errors, touched, status
 
 }) =>{
-    console.log ("values", values);
-    console.log ("erros", errors);
-    console.log ("touched", touched);
+    // console.log ("values", values);
+    // console.log ("erros", errors);
+    // console.log ("touched", touched);
 
 
     //state for initial form data
@@ -64,8 +64,7 @@ return (
     {/*pass form field*/}
 
 <label className = "checkbox">
-    Accept Terms Of Sevice
-
+    Terms Of Sevice
 <Field 
 type = "checkbox"
 name = "terms"
@@ -107,10 +106,10 @@ const UserFormikForm = withFormik ({
         };
         }, //pass props to new users?
 
-validationSchema: Yup.object() .shape({
-name :Yup.string() .required("name required!"),
-email: Yup.string() .required("emailed required!"),
-password:Yup.string() .required("password required!")
+validationSchema: Yup.object().shape({
+name :Yup.string().required("name required!"),
+email: Yup.string().required("emailed required!"),
+password:Yup.string().required("password required!")
 }),
     
 //validation for inputs
@@ -118,7 +117,7 @@ password:Yup.string() .required("password required!")
 handleSubmit(
     values, {setStatus, resetForm}
 ) {
-    console.log("submitted" ,values);
+    console.log("submitted" ,values); //console log values inputted on submit. 'post' console log shows results came bck
     axios
     .post ("https://reqres.in/api/users/", values)
     
@@ -135,5 +134,6 @@ handleSubmit(
     }}) (FormikForm);
 
 //submit to axios for inputs
+//console log response that comes back WITH data entered(if worked)
 
 export default UserFormikForm;
